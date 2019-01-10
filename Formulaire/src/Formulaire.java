@@ -6,9 +6,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+// Classe d'interface graphique
 public class Formulaire extends JFrame{
 	private static final long serialVersionUID = -6476151267259347713L;
 	
+	// Variable stockant les objet graphiques contenus dans l'interface
 	private JLabel jlNom;
 	private JTextField jtNom;
 	private JLabel jlPrenom;
@@ -18,13 +20,16 @@ public class Formulaire extends JFrame{
 	private JButton jbValider;
 	private JButton jbAnnuler;
 	
-	private Graphics g;
-	
+	// Constructeur de la classe
 	public Formulaire() {
+		
+		//Paramétrage de la fenêtre
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Merci de remplir");
 		setResizable(false);
 		setLayout(new GridLayout(4,2));
+		
+		// Instanciation des objets graphiques
 		jlNom = new JLabel("Nom");
 		jtNom = new JTextField();;
 		jlPrenom = new JLabel("Prénom");
@@ -33,6 +38,8 @@ public class Formulaire extends JFrame{
 		jtNote = new JTextField();
 		jbValider = new JButton("Valider");
 		jbAnnuler = new JButton("Annuler");
+		
+		// Ajout des composants graphique au ContentPane
 		getContentPane().add(jlNom);
 		getContentPane().add(jtNom);
 		getContentPane().add(jlPrenom);
@@ -41,12 +48,15 @@ public class Formulaire extends JFrame{
 		getContentPane().add(jtNote);
 		getContentPane().add(jbValider);
 		getContentPane().add(jbAnnuler);
+		
+		// Paramétrage de la fenêtre
 		setVisible(true);
 		pack();
 		setSize(400,this.getHeight());
 		setLocationRelativeTo(null);
 	}
 
+	///////////////////////////// GETTERS et SETTERS //////////////////////////////////////////////////////
 	public JButton getJbValider() {
 		return jbValider;
 	}
@@ -110,5 +120,5 @@ public class Formulaire extends JFrame{
 	public void setJtNote(JTextField jtNote) {
 		this.jtNote = jtNote;
 	}
-
+////////////////////////////////////////////////////////////////////////////////////////////////////
 }
