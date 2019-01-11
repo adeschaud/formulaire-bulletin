@@ -1,32 +1,28 @@
 package metier;
 
-import java.util.ArrayList;
-
-public class Bulletin implements IBulletin{
-
+//Classe métier stockant les informations des Bulletins
+public class Bulletin{
+	
+	// Variables contenant les données métiers
 	private String nom;
 	private String prenom;
 	private int note;
-	private ArrayList<Bulletin> bulletins;
 	
-	@Override
-	public ArrayList<Bulletin> addBulletin() {
-		bulletins.add(this);
-		return bulletins;
-	}
-	
+	// Constructeur avec paramètres
 	public Bulletin(String nom, String prenom, int note) {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.note = note;
 	}
 	
+	// Constructeur sans paramètres
 	public Bulletin() {
 		this.nom = "Doe";
 		this.prenom = "John";
 		this.note = 14;
 	}
 
+///////////////// GETTERS ET SETTERS /////////////////////////////////////////////////////
 	public String getNom() {
 		return nom;
 	}
@@ -50,8 +46,9 @@ public class Bulletin implements IBulletin{
 	public void setNote(int note) {
 		this.note = note;
 	}
+	//////////////////////////////////////////////////////////////////////////////////////////////
 	
-
+	// Surcharge de la méthode toString de la classe Object
 	@Override
 	public String toString() {
 		String str ="";
