@@ -5,7 +5,7 @@ import java.util.List;
 import dao.BulletinDAO;
 import metier.Bulletin;
 
-// Classe de point d'entrée de l'application (Mission 4)
+// Classe de point d'entrÃ©e de l'application (Mission 3)
 public class Main{
 
 	public static void main(String[] args) {
@@ -14,7 +14,7 @@ public class Main{
 		BulletinDAO.addBulletin("DUBOIS", "Henry", 13);
 		BulletinDAO.addBulletin("DUBOIS", "Henry", 9);
 		
-		// Ajout des bulletins en demandant à l'utilisateur de renseigner les informations
+		// Ajout des bulletins en demandant Ã  l'utilisateur de renseigner les informations
 		System.out.println(" === Ajout de bulletin === ");
 		BulletinDAO.addBulletin();
 		BulletinDAO.addBulletin();
