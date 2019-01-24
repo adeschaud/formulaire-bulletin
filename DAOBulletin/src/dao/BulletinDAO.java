@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -7,8 +8,12 @@ import java.util.Scanner;
 import metier.Bulletin;
 
 // Classe d'accès au données des bulletins
-public class BulletinDAO {
+public class BulletinDAO extends DAO<Bulletin>{
 	
+	public BulletinDAO(Connection conn) {
+		super(conn);
+	}
+
 	// Liste contentant tous les bulletins
 	private static List<Bulletin> bulletins= new ArrayList<>();
 	
@@ -51,5 +56,29 @@ public class BulletinDAO {
 			}
 		}
 		return bulletins;
+	}
+
+	@Override
+	public boolean create(Bulletin obj) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Bulletin read(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean update(Bulletin obj) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean delete(Bulletin obj) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }
