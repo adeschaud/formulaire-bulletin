@@ -8,15 +8,20 @@ import java.util.ArrayList;
 
 import metier.Bulletin;
 
+// Classe d'accès au données de la table Bulletin
 public class BulletinDAO {
 
+	// Instance de la connection SQL
 	Connection conn;
 
+	// Constructeur de la classe récupérant la connexion
 	public BulletinDAO(Connection conn){
 		this.conn = conn;
 	}
 
+	// Insertion d'un bulletin dans la base de donnée
 	public void addBulletin(Bulletin bul) {
+		//Construction de la requête en récupérant les données de l'instance du Bulletin
 		String str = "INSERT INTO bulletin(`nom`,`prenom`,`note`) VALUES ('" + 
 				bul.getNom() + "','" + 
 				bul.getPrenom() + "','" + 
@@ -39,6 +44,7 @@ public class BulletinDAO {
 		} 
 	}
 
+	// Recherche de Bulletins par mot clés, retourne une tableau de bulletins
 	public ArrayList<Bulletin> bulletinParMC(String mc){
 		ArrayList<Bulletin> buls = new ArrayList<>();
 		String str = "SELECT * FROM bulletin WHERE nom LIKE '" + mc + "%';";
@@ -59,9 +65,10 @@ public class BulletinDAO {
 		return buls;
 	}
 
+	// Recherche de Bulletins dont les notes sont inferieur à la note passée en paramètre
 	public ArrayList<Bulletin> bulletinParNote(int min) {
 		ArrayList<Bulletin> buls = new ArrayList<>();
-		// Requête SQL de selection de bulletin dont la note est superieur à la saisie
+		// Requête SQL de selection de bulletin dont la note est inferieur à la saisie
 		String str = "SELECT * FROM bulletin where note < ?";
 		PreparedStatement stmt;
 		try {

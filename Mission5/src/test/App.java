@@ -9,32 +9,22 @@ import java.util.Scanner;
 import dao.BulletinDAO;
 import metier.Bulletin;
 
+// Classe de test de la DAO
 public class App {
 
+	// Instance de la connexion SQL
 	Connection conn = null;
 
+	// Instance de la classe d'accès aux données
 	BulletinDAO bdao;
 
+	// Méthode main
 	public static void main(String[] args) {
 		new App();
 	}
 
+	// Constructeur de la classe permettant l'interaction avec l'utilisateur
 	public App() {
-
-
-		// Insertion d'une note
-		//Bulletin bulletin = new Bulletin("FOUCHER", "Matthieu", 17);
-
-		// Ajout du Bulletin
-		//bdao.addBulletin(bulletin);
-
-		// Recherche du bulletin par mot clé
-		//ArrayList<Bulletin> buls = bdao.bulletinParMC("DE");
-
-		// Affichage des bulletins correspondants
-		//for (Bulletin b : buls) {
-		//	System.out.print(b);
-		//}
 
 		// Instanciation de l'objet permettant de récupérer la saisie console
 		Scanner sc = new Scanner(System.in);
@@ -72,11 +62,11 @@ public class App {
 				insertValues();
 				break;
 			case 3:
-				// Choix 3: Selection des bulletins dont la note est superieur à une note saisie
+				// Choix 3: Selection des bulletins dont la note est inferieur à une note saisie
 				doSearchNote();
 				break;
 			case 4:
-				// Choix 4 : 
+				// Choix 4 : Recherche de bulletin par mot clés
 				doByMc();
 			}
 		}
@@ -84,6 +74,7 @@ public class App {
 		closeConnection();
 	}
 
+	// Méthode de recher par mot clé
 	private void doByMc() {
 		// Récupération de la saisie utilisateur
 		Scanner sc = new Scanner(System.in);
@@ -109,11 +100,9 @@ public class App {
 
 	// Méthode d'insertion de valeur dans la talbe bulletin
 	private void insertValues() {
-
 		// Boucle permettant l'insertion de plusieurs valeurs
 		int redo = 0;
 		while (redo == 0) {
-
 			// Récupération des données à insérer
 			Scanner sc = new Scanner(System.in);
 			System.out.println("Nom : ");
@@ -123,6 +112,7 @@ public class App {
 			System.out.println("Note : ");
 			int note = sc.nextInt();
 
+			// Insertion du bulletin en bdd
 			bdao.addBulletin(new Bulletin(nom,prenom,note));
 
 			// Choix de resaisir des valeurs ou de revenir au menu principal
